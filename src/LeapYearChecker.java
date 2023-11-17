@@ -12,7 +12,13 @@ public class LeapYearChecker extends JFrame{
         btnCheckYear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int year = Integer.parseInt(tfYear.getText());
+                int year = 0;
+                try {
+                    year = Integer.parseInt(tfYear.getText());
+                } catch (Exception f) {
+                    JOptionPane.showMessageDialog(panelLeapYear, "Please enter a valid input!");
+                    return;
+                }
                 if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
                     JOptionPane.showMessageDialog(panelLeapYear, "Leap year");
                 } else {

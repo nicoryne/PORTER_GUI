@@ -19,8 +19,16 @@ public class simpleCalculator extends JFrame {
         btnCompute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double first_num = Double.parseDouble(tfNumber1.getText());
-                double second_num = Double.parseDouble(tfNumber2.getText());
+                double first_num = 0;
+                double second_num = 0;
+                try {
+                    first_num = Double.parseDouble(tfNumber1.getText());
+                    second_num = Double.parseDouble(tfNumber2.getText());
+                } catch (Exception f){
+                    JOptionPane.showMessageDialog(panelCalculator, "Please enter a valid input!");
+                    return;
+                }
+
                 if(cbOperations.getSelectedIndex() == 0) {
                     //ADDITION
                     label1stNumber.setText(String.valueOf(first_num + second_num));
